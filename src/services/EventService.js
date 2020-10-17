@@ -10,4 +10,4 @@ const apiClient = axios.create({
 });
 
 export const apiGetAllRooms = () => apiClient.get('/rooms');
-export const getRoom = id => apiClient.get(`/room/${id}`);
+export const apiGetRoom = id => apiClient.get(`/room/${id}`);
