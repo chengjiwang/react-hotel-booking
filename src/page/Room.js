@@ -1,28 +1,37 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from "react-router-dom";
 import { apiGetRoom } from 'services/EventService';
+import Loading from 'component/Loading/Loading';
 import RoomHeader from 'component/RoomHeader/RoomHeader';
 import RoomInformation from 'component/RoomInformation/RoomInformation';
 import RoomAmenity from 'component/RoomAmenity/RoomAmenity';
+import RoomBooking from 'component/RoomBooking/RoomBooking';
 
 class Room extends Component {
   state = {
-    room: []
+    room: [],
+    booking: [],
+    isActive: false
   };
   componentDidMount() {
-    console.log(this.props);
     const roomId = this.props.match.params.roomId;
     this.getRoom(roomId);
   };
   getRoom = (id) => {
-    apiGetRoom(id).then(res => {
-      console.log(res.data);
-      this.setState({ room: res.data.room[0] });
+    this.setState({ isActive: true });
+    apiGetRoom(id).then(res => {    
+      this.setState({ 
+        room: res.data.room[0],
+        booking: res.data.booking,
+        isActive: false
+      });
     });
   };
   render() {
-    const { room } = this.state;
+    const { room, booking, isActive } = this.state;
     return (
       <Fragment>
+        { isActive && <Loading /> }
         { room.imageUrl && <RoomHeader imageUrl={room.imageUrl} /> }
         <div className="container">
           <main className="row my-5">
@@ -30,6 +39,10 @@ class Room extends Component {
               { room.name && <RoomInformation room={room} /> }
               { room.amenities && < RoomAmenity amenities={room.amenities} /> }
             </div>
+            <div className="col-sm-12 col-lg-6">
+              <RoomBooking booking={booking} roomId={room.id} updateRoom={this.getRoom} />
+            </div>
+            <Link to="/" className="btn btn-outline-primary ml-3 mt-4">回首頁</Link>
           </main>
         </div>
       </Fragment>

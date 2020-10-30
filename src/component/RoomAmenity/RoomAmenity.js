@@ -17,7 +17,6 @@ import './roomAmenity.scss';
 
 const RoomAmenity = (props) => {
   const { amenities } = props;
-  console.log(amenities)
   return (
     <section className="row amenity">
       <div className={cx("col-6 col-md-4 d-flex my-3", { disable: !amenities['Wi-Fi'] })}>

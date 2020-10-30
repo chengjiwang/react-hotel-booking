@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { apiGetAllRooms } from 'services/EventService';
+import Loading from 'component/Loading/Loading';
 import Header from 'component/HomeHeader/HomeHeader';
 import RoomCard from 'component/RoomCard/RoomCard';
 import './home.scss';
@@ -7,21 +8,26 @@ import './home.scss';
 class Home extends Component {
   state = {
     rooms: [],
+    isActive: false
   };
   componentDidMount() {
     this.getAllRooms();
   };
   getAllRooms = () => {
+    this.setState({ isActive: true });
     apiGetAllRooms()
       .then((res)=> {
-        console.log(res.data.items);
-        this.setState({ rooms: res.data.items});
+        this.setState({ 
+          rooms: res.data.items,
+          isActive: false
+        });
       });
   };
   render() {
-    const { rooms } = this.state;
+    const { rooms, isActive } = this.state;
     return (
       <div>
+        { isActive && <Loading /> }
         <Header room= {rooms[4]} />
         <section className="container hotel-body">
           <div className="row">

@@ -1,0 +1,13 @@
+.reservation {
+  .form-group {
+    display: block;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.25em;
+    text-align: left;
+  }
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+}
