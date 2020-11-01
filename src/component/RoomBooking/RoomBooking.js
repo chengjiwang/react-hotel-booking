@@ -3,7 +3,9 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { eachDayOfInterval, format , parseISO} from 'date-fns';
 import DatePickerField from 'component/DatePickerField';
-import { apiBookingRoom } from 'services/EventService';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { apiBookingRoom, apiClearReservation } from 'services/EventService';
 import './roomBooking.scss';
 
 class RoomBooking extends Component {
@@ -19,6 +21,16 @@ class RoomBooking extends Component {
   disabledDates = () => {
     return this.props.booking.map(item => parseISO(item.date));
   };
+  clearReservation = (e) => {
+    e.preventDefault();
+    const {roomId, updateRoom} = this.props;
+    apiClearReservation().then(res => {
+      if (res.data.success) {
+        toast.success("清除預約成功");
+        updateRoom(roomId);
+      }
+    });
+  }
   render() {
     return (
       <Formik
@@ -45,9 +57,12 @@ class RoomBooking extends Component {
             tel: values.tel,
             date: this.getDateInterval(values)
           }
-          apiBookingRoom(roomId, data).then(res => {
+          apiBookingRoom(roomId, data).then(()=> {
             resetForm();
             updateRoom(roomId);
+            toast.success("預約成功");
+          }).catch(error => {        
+            toast.error(error.response.data.message);
           });
         }}
       >
@@ -90,9 +105,10 @@ class RoomBooking extends Component {
               </ErrorMessage>
             
               <div className="text-right mt-3">
-                <button type="btn" className="btn btn-outline-secondary" >清除所有預約</button>
+                <button type="btn" className="btn btn-outline-secondary" onClick={this.clearReservation} >清除所有預約</button>
                 <button type="submit" className="btn btn-primary ml-3">預約</button>
               </div>
+              <ToastContainer position="bottom-right"/>
             </Form>
           </div>
         )}

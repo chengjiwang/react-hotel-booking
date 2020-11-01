@@ -33,18 +33,20 @@ class Room extends Component {
       <Fragment>
         { isActive && <Loading /> }
         { room.imageUrl && <RoomHeader imageUrl={room.imageUrl} /> }
-        <div className="container">
-          <main className="row my-5">
-            <div className="col-sm-12 col-lg-6 text-left">
-              { room.name && <RoomInformation room={room} /> }
-              { room.amenities && < RoomAmenity amenities={room.amenities} /> }
-            </div>
-            <div className="col-sm-12 col-lg-6">
-              <RoomBooking booking={booking} roomId={room.id} updateRoom={this.getRoom} />
-            </div>
-            <Link to="/" className="btn btn-outline-primary ml-3 mt-4">回首頁</Link>
-          </main>
-        </div>
+        { room.name && (
+          <div className="container">
+            <main className="row my-5">
+              <div className="col-sm-12 col-lg-6 text-left">
+                <RoomInformation room={room} /> 
+                <RoomAmenity amenities={room.amenities} /> 
+              </div>
+              <div className="col-sm-12 col-lg-6">
+                <RoomBooking booking={booking} roomId={room.id} updateRoom={this.getRoom} />
+              </div>
+              <Link to="/" className="btn btn-outline-primary ml-3 mt-4">回首頁</Link>
+            </main>
+          </div>
+        )}
       </Fragment>
     );
   }

@@ -12,6 +12,7 @@ const DatePickerField = ({ ...props }) => {
       {...field}
       {...props}
       autoComplete="off"
+      dateFormat="yyyy/MM/dd"
       minDate={addDays(new Date(), 1)} 
       maxDate={addDays(new Date(), 90)}
       selected={(field.value && new Date(field.value)) || null}
