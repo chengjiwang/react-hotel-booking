@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "//react-hotel-booking/static/css/main.04d2c175.chunk.css",
+    "main.css": "//react-hotel-booking/static/css/main.2c338363.chunk.css",
     "main.js": "//react-hotel-booking/static/js/main.6ad8f9ae.chunk.js",
     "main.js.map": "//react-hotel-booking/static/js/main.6ad8f9ae.chunk.js.map",
     "runtime-main.js": "//react-hotel-booking/static/js/runtime-main.1adc61f8.js",
@@ -9,10 +9,10 @@
     "static/js/2.41b6a10f.chunk.js": "//react-hotel-booking/static/js/2.41b6a10f.chunk.js",
     "static/js/2.41b6a10f.chunk.js.map": "//react-hotel-booking/static/js/2.41b6a10f.chunk.js.map",
     "index.html": "//react-hotel-booking/index.html",
-    "precache-manifest.c9ec5c8fee43c29e2cac63c2a6666d78.js": "//react-hotel-booking/precache-manifest.c9ec5c8fee43c29e2cac63c2a6666d78.js",
+    "precache-manifest.1a2145b019b457ff3af990d28c792187.js": "//react-hotel-booking/precache-manifest.1a2145b019b457ff3af990d28c792187.js",
     "service-worker.js": "//react-hotel-booking/service-worker.js",
     "static/css/2.ca6e89fa.chunk.css.map": "//react-hotel-booking/static/css/2.ca6e89fa.chunk.css.map",
-    "static/css/main.04d2c175.chunk.css.map": "//react-hotel-booking/static/css/main.04d2c175.chunk.css.map",
+    "static/css/main.2c338363.chunk.css.map": "//react-hotel-booking/static/css/main.2c338363.chunk.css.map",
     "static/js/2.41b6a10f.chunk.js.LICENSE.txt": "//react-hotel-booking/static/js/2.41b6a10f.chunk.js.LICENSE.txt",
     "static/media/amenity_air_conditioner.a3cf043b.svg": "//react-hotel-booking/static/media/amenity_air_conditioner.a3cf043b.svg",
     "static/media/amenity_breakfast.00d1a029.svg": "//react-hotel-booking/static/media/amenity_breakfast.00d1a029.svg",
@@ -36,7 +36,7 @@
     "static/js/runtime-main.1adc61f8.js",
     "static/css/2.ca6e89fa.chunk.css",
     "static/js/2.41b6a10f.chunk.js",
-    "static/css/main.04d2c175.chunk.css",
+    "static/css/main.2c338363.chunk.css",
     "static/js/main.6ad8f9ae.chunk.js"
   ]
 }
