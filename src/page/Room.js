@@ -1,55 +1,61 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
-import { apiGetRoom } from 'services/EventService';
+import { fetchSingleRoom } from 'slice/roomsSlice';
 import Loading from 'component/Loading/Loading';
 import RoomHeader from 'component/RoomHeader/RoomHeader';
 import RoomInformation from 'component/RoomInformation/RoomInformation';
 import RoomAmenity from 'component/RoomAmenity/RoomAmenity';
 import RoomBooking from 'component/RoomBooking/RoomBooking';
 
-class Room extends Component {
-  state = {
-    room: [],
-    booking: [],
-    isActive: false
-  };
-  componentDidMount() {
-    const roomId = this.props.match.params.roomId;
-    this.getRoom(roomId);
-  };
-  getRoom = (id) => {
-    this.setState({ isActive: true });
-    apiGetRoom(id).then(res => {    
-      this.setState({ 
-        room: res.data.room[0],
-        booking: res.data.booking,
-        isActive: false
-      });
-    });
-  };
-  render() {
-    const { room, booking, isActive } = this.state;
-    return (
-      <Fragment>
-        { isActive && <Loading /> }
-        { room.imageUrl && <RoomHeader imageUrl={room.imageUrl} /> }
-        { room.name && (
-          <div className="container">
-            <main className="row my-5">
-              <div className="col-sm-12 col-lg-6 text-left">
-                <RoomInformation room={room} /> 
-                <RoomAmenity amenities={room.amenities} /> 
-              </div>
-              <div className="col-sm-12 col-lg-6">
-                <RoomBooking booking={booking} roomId={room.id} updateRoom={this.getRoom} />
-              </div>
-              <Link to="/" className="btn btn-outline-primary ml-3 mt-4">回首頁</Link>
-            </main>
-          </div>
-        )}
-      </Fragment>
-    );
+const Room = ({ match }) => {
+  const { roomId } = match.params;
+  const dispatch = useDispatch();
+  const roomStatus = useSelector(state => state.rooms.singleRoomStatus);
+  const singleRoom = useSelector(state => state.rooms.singleRoom);
+  
+  useEffect(() => {
+    dispatch(fetchSingleRoom(roomId));
+  }, [dispatch, roomId]);
+
+  let content;
+  if (roomStatus === 'loading') {
+    content = <Loading />;
+  } else if (roomStatus === 'succeeded') {
+    const { room, booking } = singleRoom;
+    console.log('room:', room[0]);
+    content = <RoomExcerpt key={room[0].id} room={room[0]} booking={booking} />
   }
+
+  return (
+    <Fragment>
+      { content }
+    </Fragment>
+  );
 }
 
 export default Room;
+
+const RoomExcerpt  = ({ room, booking }) => {
+  const dispatch = useDispatch();
+  const getRoom = (roomId) =>{
+    dispatch(fetchSingleRoom(roomId));
+  };
+  return (
+    <Fragment>
+      <RoomHeader imageUrl={room.imageUrl} />   
+      <div className="container">
+        <main className="row my-5">
+          <div className="col-sm-12 col-lg-6 text-left">
+            <RoomInformation room={room} /> 
+            <RoomAmenity amenities={room.amenities} /> 
+          </div>
+          <div className="col-sm-12 col-lg-6">
+            <RoomBooking booking={booking} roomId={room.id} updateRoom={getRoom} />
+          </div>
+          <Link to="/" className="btn btn-outline-primary ml-3 mt-4">回首頁</Link>
+        </main>
+      </div>     
+    </Fragment>
+  )
+}
