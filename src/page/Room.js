@@ -23,7 +23,6 @@ const Room = ({ match }) => {
     content = <Loading />;
   } else if (roomStatus === 'succeeded') {
     const { room, booking } = singleRoom;
-    console.log('room:', room[0]);
     content = <RoomExcerpt key={room[0].id} room={room[0]} booking={booking} />
   }
 
@@ -34,13 +33,7 @@ const Room = ({ match }) => {
   );
 }
 
-export default Room;
-
 const RoomExcerpt  = ({ room, booking }) => {
-  const dispatch = useDispatch();
-  const getRoom = (roomId) =>{
-    dispatch(fetchSingleRoom(roomId));
-  };
   return (
     <Fragment>
       <RoomHeader imageUrl={room.imageUrl} />   
@@ -51,7 +44,7 @@ const RoomExcerpt  = ({ room, booking }) => {
             <RoomAmenity amenities={room.amenities} /> 
           </div>
           <div className="col-sm-12 col-lg-6">
-            <RoomBooking booking={booking} roomId={room.id} updateRoom={getRoom} />
+            <RoomBooking booking={booking} roomId={room.id} />
           </div>
           <Link to="/" className="btn btn-outline-primary ml-3 mt-4">回首頁</Link>
         </main>
@@ -59,3 +52,5 @@ const RoomExcerpt  = ({ room, booking }) => {
     </Fragment>
   )
 }
+
+export default Room;
