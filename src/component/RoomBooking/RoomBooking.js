@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { eachDayOfInterval, format , parseISO} from 'date-fns';
+import { eachDayOfInterval, format , parseISO } from 'date-fns';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,10 +12,15 @@ import DatePickerField from 'component/DatePickerField';
 import './roomBooking.scss';
 
 const RoomBooking = ({ booking, roomId }) => {
+  const [initialValues] = useState({
+    name: '',
+    tel: '',
+    startDate: '',
+    endDate: ''
+  });
   const dispatch = useDispatch();
 
   const getDateInterval = ({ startDate, endDate })=> {
-    console.log(startDate, endDate);
     return eachDayOfInterval({
       start: new Date(startDate),
       end: new Date(endDate)
@@ -37,53 +42,53 @@ const RoomBooking = ({ booking, roomId }) => {
         toast.error("清除預約失敗");
       });
   }
+  const formSchema = Yup.object({
+    name: Yup.string()
+      .required('此欄位為必填'),
+    tel: Yup.number()
+      .required('此欄位為必填'),
+    startDate: Yup.date()
+      .required('此欄位為必填'),
+    endDate: Yup.date()
+      .min(
+        Yup.ref('startDate'),
+        '退房日期不能早於入住日期'
+      ).required('此欄位為必填')
+  });
+  const handleSubmit = (values, { resetForm }) =>{
+    const data = {
+      name: values.name,
+      tel: values.tel,
+      date: getDateInterval(values)
+    };
+    dispatch(addBooking({ roomId, data }))
+      .then(unwrapResult)
+      .then(() => {
+        resetForm();
+        toast.success("預約成功");
+      })        
+      .catch(err => {
+        toast.error(err.message);
+      });
+  }
   return (
     <Formik
-      initialValues={{
-        name: '',
-        tel: '',
-        startDate: '',
-        endDate: ''
-      }}
-      validationSchema={Yup.object({
-        name: Yup.string()
-          .required('此欄位為必填'),
-        tel: Yup.string()
-          .required('此欄位為必填'),
-        startDate: Yup.string()
-          .required('此欄位為必填'),
-        endDate: Yup.string()
-          .required('此欄位為必填')
-      })}
-      onSubmit={ async (values, { resetForm }) => {
-        const data = {
-          name: values.name,
-          tel: values.tel,
-          date: getDateInterval(values)
-        };
-        dispatch(addBooking({ roomId, data }))
-          .then(unwrapResult)
-          .then(() => {
-            resetForm();
-            toast.success("預約成功");
-          })        
-          .catch(err => {
-            toast.error(err.message);
-          });
-      }}
+      initialValues={initialValues}
+      validationSchema={formSchema}
+      onSubmit={handleSubmit}
     >
       { formik => (
         <div>
           <h2 className="text-left mb-4">預約時段</h2>
           <Form className="reservation">
             <label htmlFor="name" className="form-group mt-3">姓名</label>
-            <Field id="name" name="name"  type="text" className="form-control" />
+            <Field id="name" name="name" type="text" className="form-control" />
             <ErrorMessage name="name">
               { (msg) => <div className="form-text text-danger text-left">{msg}</div> }
             </ErrorMessage> 
 
             <label htmlFor="phone" className="form-group mt-3">電話</label>
-            <Field id="phone" name="tel"  type="number" className="form-control" />
+            <Field id="phone" name="tel" type="number" className="form-control" />
             <ErrorMessage name="tel">
               { (msg) => <div className="form-text text-danger text-left">{msg}</div> }
             </ErrorMessage>
