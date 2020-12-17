@@ -1,8 +1,7 @@
 import React from 'react';
 import './roomHeader.scss';
 
-const RoomHeader = (props) => {
-  const { imageUrl } = props;
+const RoomHeader = ({ imageUrl }) => {
   return (
     <div className="container-fluid room">
       <header className="row room-header">

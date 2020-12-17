@@ -6,8 +6,7 @@ import { ReactComponent as MailIcon } from 'assets/svg/icon_mail.svg';
 import { ReactComponent as HomeIcon } from 'assets/svg/icon_home.svg';
 import './homeHeader.scss';
 
-const homeHeader = (props) => {
-  const { room } = props;
+const homeHeader = ({ room }) => {
   const bgImage = room ? { backgroundImage : `url(${room.imageUrl})`} : null ;
   return (
     <header className="container-fluid header-bg" style= { bgImage }>

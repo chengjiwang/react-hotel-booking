@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import './roomInformation.scss';
 
-const RoomInformation = (props) => {
-  const { room } = props;
+const RoomInformation = ({ room }) => {
   return (
     <Fragment>
       <h1 className="room-title mb-4">{ room.name }</h1>

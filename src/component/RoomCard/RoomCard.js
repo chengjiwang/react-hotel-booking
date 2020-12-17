@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './roomCard.scss';
 
-const roomCard = (props) => {
-  const { room } = props;
+const roomCard = ({ room }) => {
   const bgImage = room ? { backgroundImage : `url(${room.imageUrl})`} : null ;
   return (
     <div className="col-md-6 col-xl-4 pr">

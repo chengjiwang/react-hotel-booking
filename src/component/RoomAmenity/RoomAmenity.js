@@ -15,8 +15,7 @@ import  { ReactComponent as PetIcon } from 'assets/svg/amenity_pet_friendly.svg'
 import './roomAmenity.scss';
 
 
-const RoomAmenity = (props) => {
-  const { amenities } = props;
+const RoomAmenity = ({ amenities }) => {
   return (
     <section className="row amenity">
       <div className={cx("col-6 col-md-4 d-flex my-3", { disable: !amenities['Wi-Fi'] })}>
