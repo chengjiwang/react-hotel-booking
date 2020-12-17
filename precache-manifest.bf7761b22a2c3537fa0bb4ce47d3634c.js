@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b750a4ea920a933afa5a6fe99394b2be",
+    "revision": "c78cd5bc72332767c612e1e02771a512",
     "url": "/react-hotel-booking/index.html"
   },
   {
-    "revision": "081e66f10f4cf731ade0",
-    "url": "/react-hotel-booking/static/css/2.ca6e89fa.chunk.css"
+    "revision": "567063a13f65b16e4f66",
+    "url": "/react-hotel-booking/static/css/2.ff2a975f.chunk.css"
   },
   {
-    "revision": "a6e1ab3b184dce9b6101",
+    "revision": "6251276c073cc638574d",
     "url": "/react-hotel-booking/static/css/main.2c338363.chunk.css"
   },
   {
-    "revision": "081e66f10f4cf731ade0",
-    "url": "/react-hotel-booking/static/js/2.41b6a10f.chunk.js"
+    "revision": "567063a13f65b16e4f66",
+    "url": "/react-hotel-booking/static/js/2.dbe943d8.chunk.js"
   },
   {
     "revision": "e0546182649f50a2eb923c2a881ed896",
-    "url": "/react-hotel-booking/static/js/2.41b6a10f.chunk.js.LICENSE.txt"
+    "url": "/react-hotel-booking/static/js/2.dbe943d8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a6e1ab3b184dce9b6101",
-    "url": "/react-hotel-booking/static/js/main.338c1727.chunk.js"
+    "revision": "6251276c073cc638574d",
+    "url": "/react-hotel-booking/static/js/main.5833c21a.chunk.js"
   },
   {
     "revision": "8ea2b48bc7bd604631cb",

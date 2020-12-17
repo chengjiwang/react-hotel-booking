@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/react-hotel-booking/static/css/main.2c338363.chunk.css",
-    "main.js": "/react-hotel-booking/static/js/main.338c1727.chunk.js",
-    "main.js.map": "/react-hotel-booking/static/js/main.338c1727.chunk.js.map",
+    "main.js": "/react-hotel-booking/static/js/main.5833c21a.chunk.js",
+    "main.js.map": "/react-hotel-booking/static/js/main.5833c21a.chunk.js.map",
     "runtime-main.js": "/react-hotel-booking/static/js/runtime-main.4c72a5ad.js",
     "runtime-main.js.map": "/react-hotel-booking/static/js/runtime-main.4c72a5ad.js.map",
-    "static/css/2.ca6e89fa.chunk.css": "/react-hotel-booking/static/css/2.ca6e89fa.chunk.css",
-    "static/js/2.41b6a10f.chunk.js": "/react-hotel-booking/static/js/2.41b6a10f.chunk.js",
-    "static/js/2.41b6a10f.chunk.js.map": "/react-hotel-booking/static/js/2.41b6a10f.chunk.js.map",
+    "static/css/2.ff2a975f.chunk.css": "/react-hotel-booking/static/css/2.ff2a975f.chunk.css",
+    "static/js/2.dbe943d8.chunk.js": "/react-hotel-booking/static/js/2.dbe943d8.chunk.js",
+    "static/js/2.dbe943d8.chunk.js.map": "/react-hotel-booking/static/js/2.dbe943d8.chunk.js.map",
     "index.html": "/react-hotel-booking/index.html",
-    "precache-manifest.02a76eddbd6fd326806ed9f98d7a42de.js": "/react-hotel-booking/precache-manifest.02a76eddbd6fd326806ed9f98d7a42de.js",
+    "precache-manifest.bf7761b22a2c3537fa0bb4ce47d3634c.js": "/react-hotel-booking/precache-manifest.bf7761b22a2c3537fa0bb4ce47d3634c.js",
     "service-worker.js": "/react-hotel-booking/service-worker.js",
-    "static/css/2.ca6e89fa.chunk.css.map": "/react-hotel-booking/static/css/2.ca6e89fa.chunk.css.map",
+    "static/css/2.ff2a975f.chunk.css.map": "/react-hotel-booking/static/css/2.ff2a975f.chunk.css.map",
     "static/css/main.2c338363.chunk.css.map": "/react-hotel-booking/static/css/main.2c338363.chunk.css.map",
-    "static/js/2.41b6a10f.chunk.js.LICENSE.txt": "/react-hotel-booking/static/js/2.41b6a10f.chunk.js.LICENSE.txt",
+    "static/js/2.dbe943d8.chunk.js.LICENSE.txt": "/react-hotel-booking/static/js/2.dbe943d8.chunk.js.LICENSE.txt",
     "static/media/amenity_air_conditioner.a3cf043b.svg": "/react-hotel-booking/static/media/amenity_air_conditioner.a3cf043b.svg",
     "static/media/amenity_breakfast.00d1a029.svg": "/react-hotel-booking/static/media/amenity_breakfast.00d1a029.svg",
     "static/media/amenity_child_friendly.a726a778.svg": "/react-hotel-booking/static/media/amenity_child_friendly.a726a778.svg",
@@ -34,9 +34,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.4c72a5ad.js",
-    "static/css/2.ca6e89fa.chunk.css",
-    "static/js/2.41b6a10f.chunk.js",
+    "static/css/2.ff2a975f.chunk.css",
+    "static/js/2.dbe943d8.chunk.js",
     "static/css/main.2c338363.chunk.css",
-    "static/js/main.338c1727.chunk.js"
+    "static/js/main.5833c21a.chunk.js"
   ]
 }
