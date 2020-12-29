@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './roomHeader.scss';
 
 const RoomHeader = ({ imageUrl }) => {
@@ -16,6 +17,10 @@ const RoomHeader = ({ imageUrl }) => {
       </header>
     </div>
   );
+};
+
+RoomHeader.propTypes = {
+  imageUrl: PropTypes.array
 };
 
 export default RoomHeader;

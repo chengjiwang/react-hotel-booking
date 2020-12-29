@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import './roomCard.scss';
 
-const roomCard = ({ room }) => {
+const RoomCard = ({ room }) => {
   const bgImage = room ? { backgroundImage : `url(${room.imageUrl})`} : null ;
   return (
     <div className="col-md-6 col-xl-4 pr">
@@ -27,4 +28,8 @@ const roomCard = ({ room }) => {
   );
 }
 
-export default roomCard;
+RoomCard.propTypes = {
+  room: PropTypes.object
+};
+
+export default RoomCard;

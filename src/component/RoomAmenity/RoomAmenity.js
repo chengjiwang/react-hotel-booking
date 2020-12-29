@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import  { ReactComponent as WifiIcon } from 'assets/svg/amenity_wifi.svg';
 import  { ReactComponent as TelevisionIcon } from 'assets/svg/amenity_television.svg';
@@ -68,6 +69,10 @@ const RoomAmenity = ({ amenities }) => {
       </div>
     </section>
   );
+};
+
+RoomAmenity.propTypes = {
+  amenities: PropTypes.object
 };
 
 export default RoomAmenity;

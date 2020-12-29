@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import './roomInformation.scss';
 
 const RoomInformation = ({ room }) => {
@@ -27,6 +28,10 @@ const RoomInformation = ({ room }) => {
       </section>
     </Fragment>      
   );
+};
+
+RoomInformation.propTypes = {
+  room: PropTypes.object
 };
 
 export default RoomInformation;

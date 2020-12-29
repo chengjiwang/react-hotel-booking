@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ReactComponent as FBIcon } from 'assets/svg/brand_facebook.svg';
 import { ReactComponent as IGIcon } from 'assets/svg/brand_instagram.svg';
 import { ReactComponent as PhoneIcon } from 'assets/svg/icon_phone.svg';
@@ -6,7 +7,7 @@ import { ReactComponent as MailIcon } from 'assets/svg/icon_mail.svg';
 import { ReactComponent as HomeIcon } from 'assets/svg/icon_home.svg';
 import './homeHeader.scss';
 
-const homeHeader = ({ room }) => {
+const HomeHeader = ({ room }) => {
   const bgImage = room ? { backgroundImage : `url(${room.imageUrl})`} : null ;
   return (
     <header className="container-fluid header-bg" style= { bgImage }>
@@ -39,4 +40,8 @@ const homeHeader = ({ room }) => {
   );
 }
 
-export default homeHeader;
+HomeHeader.propTypes = {
+  room: PropTypes.object
+};
+
+export default HomeHeader;
