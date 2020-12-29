@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { unwrapResult } from '@reduxjs/toolkit'
+import { unwrapResult } from '@reduxjs/toolkit';
+import PropTypes from 'prop-types';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { eachDayOfInterval, format , parseISO } from 'date-fns';
@@ -125,6 +126,11 @@ const RoomBooking = ({ booking, roomId }) => {
       )}
     </Formik>
   );
+};
+
+RoomBooking.propTypes = {
+  booking: PropTypes.array,
+  roomId: PropTypes.string
 };
 
 export default RoomBooking;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { useField, useFormikContext } from "formik";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -21,6 +22,13 @@ const DatePickerField = ({ ...props }) => {
       }}
     />
   );
+};
+
+DatePickerField.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  className: PropTypes.string,
+  excludeDates: PropTypes.array,
 };
 
 export default DatePickerField;
